@@ -46,7 +46,7 @@ def fonction2() : #permet de calculer une quantité de matière grâce au numér
 def fonction3() :  #permet de trouver une masse molaire grâce au symbole de l'élément
     symb1 = input("Entrez le symbole de l'élément:")
     i = 0  
-    while i < 113 :
+    while i < 119 :
         if symbole[i] == symb1 :
             print("La masse molaire est", masseMol[i],"g.mol-1.")
             break
