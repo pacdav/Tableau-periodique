@@ -17,16 +17,16 @@ masseMol = [0, 1, 4, 7, 9, 11, 12, 14, 16, 19, 20, 23, 24, 27, 28, 31, 32, 35, 4
             267, 268, 271, 272, 277, 276, 281, 280, 285, 284, 289, 288, 293, 291, 294]
 
 # troisième liste pour le nom des elements
-nomElem = ["", "Hydrogène", "Hélium", "Lithium", "Béryllium", "Bore", "Carbone", "Azote", "Oxygène", "Fer", "Néon", "Sodium", "Magnésium",
-"Aluminium", "Silicium", "Phosphore", "Souffre", "Chlore", "Aragon", "Potassium", "Calcium", "scandium", "Titane", "Vanadium", "Chrome",
- "Manganèse", "Fer", "Cobalt", "Nickel", "Cuivre", "Zinc", "Gallium", "Germanium", "Arsenic", "Sélénium", "Brome", "Krypton","Rubidium", 
- "Strontium", "Yttrium", "Zirconium", "Niobium", "Molybdène", "Technétium", "Ruthénium", "Rhodium", "Palladium", "Argent", "Cadmium", "Indium", 
- "Étain", "Antimoine", "Tellure", "Iode", "Xénon", "Césium", "Baryum", "Lanthane", "Cérium", "Praséodyme", "Néodyme", "Prométhium", "Samarium", "Europium", 
- "Gadolinium", "Terbium", "Dysprosium", "Holmium", "Erbium", "Thulium", "Ytterbium", "Lutécium", "Hafnium", "Tantale", "Tungstène", "Rhénium", "Osmium",
+nomElem = ["", "Hydrogene", "Helium", "Lithium", "Beryllium", "Bore", "Carbone", "Azote", "Oxygene", "Fluor", "Neon", "Sodium", "Magnesium",
+"Aluminium", "Silicium", "Phosphore", "Soufre", "Chlore", "Aragon", "Potassium", "Calcium", "Scandium", "Titane", "Vanadium", "Chrome",
+ "Manganese", "Fer", "Cobalt", "Nickel", "Cuivre", "Zinc", "Gallium", "Germanium", "Arsenic", "Selenium", "Brome", "Krypton","Rubidium", 
+ "Strontium", "Yttrium", "Zirconium", "Niobium", "Molybdene", "Technetium", "Ruthenium", "Rhodium", "Palladium", "Argent", "Cadmium", "Indium", 
+ "Etain", "Antimoine", "Tellure", "Iode", "Xenon", "Cesium", "Baryum", "Lanthane", "Cerium", "Praseodyme", "Neodyme", "Promethium", "Samarium", "Europium", 
+ "Gadolinium", "Terbium", "Dysprosium", "Holmium", "Erbium", "Thulium", "Ytterbium", "Lutecium", "Hafnium", "Tantale", "Tungstene", "Rhenium", "Osmium",
   "Iridium", "Platine", "Or", "Mercure", "Thallium", "Plomb", "Bismuth", "Polonium", "Astate", "Radon", "Francium", "Radium", "Actinium", "Thorium",
-   "Protactinium", "Uranium", "Neptunium", "Plutonium", "Américium", "Curium", "Berkélium", "Californium", "Einsteinium", "Fermium", 
-   "Mendélévium", "Nobélium", "Lawrencium", "Rutherfordium", "Dubnium", "Seaborgium", "Bohrium", "Hassium", "Meitnérium", "Darmstadtium", 
-   "Roentgenium", "Copernicium", "Ununtrium", "Flérovium", "Ununpentium", "Livermorium", "Ununseptium", "Ununoctium"]
+   "Protactinium", "Uranium", "Neptunium", "Plutonium", "Americium", "Curium", "Berkelium", "Californium", "Einsteinium", "Fermium", 
+   "Mendelevium", "Nobelium", "Lawrencium", "Rutherfordium", "Dubnium", "Seaborgium", "Bohrium", "Hassium", "Meitnerium", "Darmstadtium", 
+   "Roentgenium", "Copernicium", "Ununtrium/Nihomium", "Flerovium", "Ununpentium/Moscovium", "Livermorium", "Ununseptium/Tennesse", "Ununoctium/Oganesson"]
 
 #Nous avons ensuite créé plusieurs petits programmes qui effectues les différentes tâches possibles comme : chercher un symbole dans la liste grâce à son numéro atomique, chercher une masse molaire d'un élément grâce à son symbole puis deux calculs pour chercher une quantité de matière avec soit le symbole de l'élément soit son numéro atomique.
 
@@ -35,6 +35,7 @@ nomElem = ["", "Hydrogène", "Hélium", "Lithium", "Béryllium", "Bore", "Carbon
 def fonction1() : #permet de trouver le symbole d'un élément grâce à son numéro atomique
     numero = int(input("Entrez le numero atomique : "))
     print("Le symbole de l'élément est", symbole[numero],".")
+    print("Le nom est : "+nomElem[numero])
  
 def fonction2() : #permet de calculer une quantité de matière grâce au numéro atomique
     numero2 = int(input("Entrez le numero atomique : "))
@@ -63,10 +64,21 @@ def fonction4() : #permet de calculer une quantité de matière grâce au symbol
             print("Il y a", mol2,"mol.")
             break
         i = i + 1
-#print("nomElem "+str(len(nomElem)))
-#print("symbole "+str(len(symbole)))
-#z=0
-#while z<119 :
-#    print(symbole[z]+"    "+nomElem[z]+"    "+str(masseMol[z]) )
-#    z =z+1
-    
+def infoelem():
+    elem=input("Quel élément voulez-vous voir: ")
+    z = 0
+    while z < 200 :
+        if nomElem[z] == elem :
+            numElem=z
+            print(symbole[z])
+            break
+        elif symbole[z] == elem:
+            numElem = z
+            print(nomElem[z])
+            break
+        #else :
+            #print("L'élément est introuvable")            
+        z = z+1
+    print("nom de l'élément: "+nomElem[z])
+    print("Symbole de l'élément: "+symbole[z])
+    print("Numéro atomique: "+z)

@@ -21,3 +21,6 @@ Fait par pc-dav et avec une base de code de du Lycée [Louis Pasteur D'avignon](
 
 ### La fonction 4 
  ##### La **fonction 4** permet de calculer une quantité de matière grâce au symbole de l'élément. Entrez la masse en gramme et le symbole de l'élément et la quantité de matière vous sera afficher en *mol*
+
+### La fonction infoelem()
+##### La fonction **infoelem()** êrùet d'avoi toute les informations sur un élément du tableau periodique n'hésiter pas a propose de nouveau element à ajouter
