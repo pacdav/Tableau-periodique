@@ -48,31 +48,31 @@ catElem = ["", "Non-métaux", "Gaz noble(non-métaux)", "Metaux alcalino-terreux
 
 # définition de chaque fonction pour le menu
  
-def fonction1() : #permet de trouver le symbole d'un élément grâce à son numéro atomique
-    numero = int(input("Entrez le numero atomique : "))
-    print("Le symbole de l'élément est", symbole[numero],".")
-    print("Le nom est : "+nomElem[numero])
+def num_symb() : #permet de trouver le symbole d'un élément grâce à son numéro atomique
+    numero = int(input("Numero atomique ?: "))
+    print("Symbole de l'élément ?", symbole[numero],".")
+    print("Nom : "+nomElem[numero])
  
-def fonction2() : #permet de calculer une quantité de matière grâce au numéro atomique
-    numero2 = int(input("Entrez le numero atomique : "))
-    masse = int(input("Entrez la masse en gramme : "))
+def nummas_quant() : #permet de calculer une quantité de matière grâce au numéro atomique
+    numero2 = int(input("Numero atomique : "))
+    masse = int(input("Masse (en g) : "))
     mol = masse/masseMol[numero2]
     print("Il y a", mol,"mol.")
  
  
-def fonction3() :  #permet de trouver une masse molaire grâce au symbole de l'élément
-    symb1 = input("Entrez le symbole de l'élément:")
+def symb_masmol() :  #permet de trouver une masse molaire grâce au symbole de l'élément
+    symb1 = input("Symbole de l'élément:")
     i = 0  
     while i < 119 :
         if symbole[i] == symb1 :
-            print("La masse molaire est", masseMol[i],"g.mol-1.")
+            print("Masse molaire: ", masseMol[i],"g.mol-1.")
             break
         i = i + 1
  
  
-def fonction4() : #permet de calculer une quantité de matière grâce au symbole de l'élément
-    masse2 = float(input("Entrez la masse en gramme : "))
-    symb2 = input("Entrez le symbole de l'élément : ")
+def symb_quant() : #permet de calculer une quantité de matière grâce au symbole de l'élément
+    masse2 = float(input("Masse en gramme : "))
+    symb2 = input("Symbole de l'élément : ")
     i = 0  
     while i < 200 :
         if symbole[i] == symb2 :
@@ -83,20 +83,26 @@ def fonction4() : #permet de calculer une quantité de matière grâce au symbol
 def infoelem():
     elem=input("Quel élém: ")
     z = 0
-    while z < 200 :
+    reponse = False
+    while z < 119 :
         if nomElem[z] == elem :
             numElem=z
-            print(symbole[z])
+            #print(symbole[z])
+            reponse = True
             break
         elif symbole[z] == elem:
             numElem = z
-            print(nomElem[z])
+            #print(nomElem[z])
+            reponse = True
             break
         #else :
             #print("L'élément est introuvable")            
         z = z+1
-    print("nom de l'élément: "+nomElem[z])
-    print("Symbole de l'élément: "+symbole[z])
-    print("Numéro atomique: "+str(z))
-    print("Masse moleculaire: "+str(masseMol[z])+ " mol")
-    print("type: "+ catElem[z])
+    if reponse == True:
+        print("Nom: "+nomElem[z])
+        print("Symbole de l'élément: "+symbole[z])
+        print("Numéro atomique: "+str(z))
+        print("Masse moleculaire: "+str(masseMol[z])+ " mol")
+        print("Type: "+ catElem[z])
+    else :
+        print("L'élément "+ str(elem)+ " est introuvable")
