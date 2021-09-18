@@ -28,6 +28,22 @@ nomElem = ["", "Hydrogene", "Helium", "Lithium", "Beryllium", "Bore", "Carbone",
    "Mendelevium", "Nobelium", "Lawrencium", "Rutherfordium", "Dubnium", "Seaborgium", "Bohrium", "Hassium", "Meitnerium", "Darmstadtium", 
    "Roentgenium", "Copernicium", "Ununtrium/Nihomium", "Flerovium", "Ununpentium/Moscovium", "Livermorium", "Ununseptium/Tennesse", "Ununoctium/Oganesson"]
 
+# Quatrième liste pour la catégorie des elements 
+catElem = ["", "Non-métaux", "Gaz noble(non-métaux)", "Metaux alcalino-terreux", "Lanthanide (métaux)", "Métalloïde (non-métaux)", "Non-Métaux", "Non-Métaux", "Non-métaux",
+"Halogène (non-métaux)", "Gaz noble(non-métaux)", "Metaux alcalino-terreux", "Lanthanide (métaux)", "Métaux pauvre", "Métalloïde (non-métaux)", "Non-métaux", "Non-métaux",
+"Halogène (non-métaux)", "Gaz noble(non-métaux)", "Metaux alcalino-terreux", "Lanthanide (métaux)", "Métaux de transition", "Métaux de transition", "Métaux de transition",
+"Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", 
+"Métaux pauvre", "Métalloïde (non-métaux)", "Métalloïde (non-métaux)", "Non-métaux", "Halogène (non-métaux)", "Gaz noble(non-métaux)", "Metaux alcalino-terreux", 
+"Lanthanide (métaux)", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", 
+"Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux pauvre", "Métaux pauvre", "Métalloïde (non-métaux)", "Métalloïde (non-métaux)", 
+"Halogène (non-métaux)", "Gaz noble(non-métaux)", "Metaux alcalino-terreux", "Lanthanide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", 
+"Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", 
+"Actinide (métaux)", "Actinide (métaux)", "Actinide (métaux)", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", 
+"Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux pauvre", "Métaux pauvre", "Métaux pauvre", "Métalloïde (non-métaux)", 
+"Halogène (non-métaux)", "Gaz noble(non-métaux)", "Metaux alcalino-terreux", "Lanthanide (métaux)", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", 
+"Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", 
+"Métaux alcalins", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", 
+"Métaux de transition", "Métaux de transition", "Métaux pauvre", "Métaux pauvre", "Métaux pauvre", "Métaux pauvre", "Halogène (non-métaux)", "Gaz noble(non-métaux)"]
 #Nous avons ensuite créé plusieurs petits programmes qui effectues les différentes tâches possibles comme : chercher un symbole dans la liste grâce à son numéro atomique, chercher une masse molaire d'un élément grâce à son symbole puis deux calculs pour chercher une quantité de matière avec soit le symbole de l'élément soit son numéro atomique.
 
 # définition de chaque fonction pour le menu
@@ -65,7 +81,7 @@ def fonction4() : #permet de calculer une quantité de matière grâce au symbol
             break
         i = i + 1
 def infoelem():
-    elem=input("Quel élément voulez-vous voir: ")
+    elem=input("Quel élém: ")
     z = 0
     while z < 200 :
         if nomElem[z] == elem :
@@ -81,4 +97,6 @@ def infoelem():
         z = z+1
     print("nom de l'élément: "+nomElem[z])
     print("Symbole de l'élément: "+symbole[z])
-    print("Numéro atomique: "+z)
+    print("Numéro atomique: "+str(z))
+    print("Masse moleculaire: "+str(masseMol[z])+ " mol")
+    print("type: "+ catElem[z])
