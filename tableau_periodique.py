@@ -1,3 +1,4 @@
+from kandinsky import *
 # premiere liste pour les symboles des éléments
 symbole = ["", "H", "He", "Li","Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al",  "Si", "P", "S", "Cl", "Ar",
            "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr",
@@ -44,6 +45,16 @@ catElem = ["", "Non-métaux", "Gaz noble(non-métaux)", "Metaux alcalino-terre
 "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", "Métaux alcalins", 
 "Métaux alcalins", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", "Métaux de transition", 
 "Métaux de transition", "Métaux de transition", "Métaux pauvre", "Métaux pauvre", "Métaux pauvre", "Métaux pauvre", "Halogène (non-métaux)", "Gaz noble(non-métaux)"]
+
+placey=[0,1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 
+5, 5, 5, 5, 5, 5, 6, 6, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+8, 8, 8, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+6, 6, 7, 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7,
+7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,7]
+placex=[0, 1, 18, 1, 2, 13, 14, 15, 16, 17, 18, 1, 2, 13, 14, 15, 16, 17, 18, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 4, 5, 6, 7, 8, 9, 
+10, 11, 12, 13, 14, 15, 16, 17, 18, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ,16, 17, 18, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 #Nous avons ensuite créé plusieurs petits programmes qui effectues les différentes tâches possibles comme : chercher un symbole dans la liste grâce à son numéro atomique, chercher une masse molaire d'un élément grâce à son symbole puis deux calculs pour chercher une quantité de matière avec soit le symbole de l'élément soit son numéro atomique.
 def table():
   print("1: Calcul avec donnée")
@@ -58,6 +69,11 @@ def table():
     table()
     
 def prechoix():
+  print("   1: numéro atom > Symbole")
+  print("   2: numéro atom>quantité mat")
+  print("   3: symbole>masse molaire")
+  print("   4: symbole>quantité mat")
+  print("   5: symbole/nom>info élém")
   selec = input("Quel programme: ")
   choix(selec)
 def choix(selec):
@@ -131,8 +147,34 @@ def infoelem():
         print("Numéro atomique: "+str(z))
         print("Masse moleculaire: "+str(masseMol[z])+ " mol")
         print("Type: "+ catElem[z])
+        #print("Place: "+ place[z])
     else :
         print("L'élément "+ str(elem)+ " est introuvable")
 def period():
-  print("Pas terminer")
+  colonne()
+def colonne():
+  x=6
+  y=0
+  while x<330:
+    for y in range (222):
+      set_pixel(x,y, color(0,0,0))
+      y=y+1
+    x=x+(330//19)   
+  x1=0
+  y1=2
+  placement=0
+  while y1<222:
+    for x1 in range (330):
+      set_pixel(x1,y1, color(0,0,0))
+      x1=x1+1
+    y1=y1+(222//9)
+  while placement<119:
+    placementB=placement+1
+    symb_tableau=symbole[placementB]
+    tablePlacex=(placex[placementB]*17)-17+10
+    tablePlacey=(placey[placementB]*24)-24+4
+    draw_string(symb_tableau[0],tablePlacex, tablePlacey)
+    placement=placementB
+# draw_string("H", 4,2)
+#draw_string("Hydrogène", 123,2)
 table()
